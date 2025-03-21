@@ -1,0 +1,27 @@
+{
+    "id": "8BC26DA4",
+    "path": "~/Documents/Recherche/R_stats/Project_GitHub/ACADB_brGDGT_full/main.R",
+    "project_path": "main.R",
+    "type": "r_source",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1742501291519.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "tempName": "Untitled1",
+        "source_window_id": "wetr5ubpasd38",
+        "Source": "Source",
+        "cursorPosition": "91,2",
+        "scrollLine": "0"
+    },
+    "folds": "10|22|23|2|\n24|27|40|2|\n27|36|31|4|\n41|34|49|2|\n50|36|68|2|\n69|23|91|2|\n92|48|103|2|\n104|23|128|2|\n129|33|139|2|\n140|32|149|2|\n150|20|153|2|\n154|14|160|110|\n169|29|202|2|\n203|51|232|2|\n205|24|223|2|\n235|20|288|2|\n236|40|258|4|\n292|23|470|2|\n293|18|438|4|\n295|72|437|4|\n296|32|337|6|\n338|28|342|6|\n343|26|364|6|\n365|34|380|6|\n381|26|436|19|\n384|21|393|8|\n394|25|412|8|\n413|30|432|80|\n439|29|451|4|\n452|34|469|4|\n474|24|541|2|\n475|30|482|4|\n483|20|521|4|\n522|24|540|4|\n545|24|560|2|\n566|19|578|2|\n589|32|636|2|\n641|27|652|4|\n653|19|696|4|\n697|17|737|4|\n738|18|776|107|\n779|23|805|2|\n781|25|804|109|\n806|24|846|3|\n808|22|846|2|\n",
+    "lastKnownWriteTime": 1742521615,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1742521615333,
+    "read_only": false,
+    "read_only_alternatives": []
+}
