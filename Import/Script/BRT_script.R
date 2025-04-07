@@ -1246,8 +1246,8 @@ FT.core <- function(MCore, MAge, Model.WAPLS, Model.MAT, Fit.val, Model.RF, Mode
 
 Combine.ML.cluster <- function(Cluster.prediction, List.models, Model.lab, GDGT.paleo, Plot.y = "Age", Param.clim = "MAAT", 
                                Highlight.combined = F, Save.path = NULL,
-                               Compare.curve = NULL, Cluster.prob = "K-warm/arid", Time.lim = NULL, Surf.val = NULL, 
-                               Core.name = NULL, Plot.y.lab = Plot.y, Show.proba = T, Facet = F, Only.best = T, H = 900, W = 500, Save.plot = NULL){
+                               Compare.curve = NULL, Cluster.prob = "Both", Time.lim = NULL, Surf.val = NULL, 
+                               Core.name = NULL, Plot.y.lab = Plot.y, Show.proba = T, Facet = T, Only.best = T, H = 900, W = 500, Save.plot = NULL){
   #### Cluster predictions ####
   Br.GDGT.paleo <- GDGT.paleo[grepl("f.I", names(GDGT.paleo)) & !grepl("_7Me", names(GDGT.paleo))]
   Br.GDGT.paleo <- data.frame(t(Br.GDGT.paleo))
@@ -1297,7 +1297,7 @@ Combine.ML.cluster <- function(Cluster.prediction, List.models, Model.lab, GDGT.
                "ACADB" = "BRT (ACADB)", "K-cold/wet" = "BRT (K-cold/wet)", "K-warm/arid" = "BRT (K-warm/arid)",
                "MAAT_mr_DJ" = "MR (De Jonge)", "MAAT_DJ_5Me" = "MBT'5Me (De Jonge)", "MAAT_NMSDB_mr5" = "MR mong.")
   
-  if(Facet == T){My_facet <- tidypaleo::facet_geochem_grid(vars(Model))}
+  if(Facet == T){My_facet <- facet_geochem_grid(vars(Model))}
   else{My_facet <- NULL; H <- H/2}
   
   if(is.null(Plot.y.lab) == F){
@@ -1371,20 +1371,31 @@ Combine.ML.cluster <- function(Cluster.prediction, List.models, Model.lab, GDGT.
   
   #### Plot (proba. cluster) ####
   if(Show.proba == T){
+    RF_class_prob2 <- RF_class_prob
     if(Cluster.prob == "K-warm/arid"){
-      RF_class_prob$Prob.to.show <- RF_class_prob$K.warm.arid
-      Estim.col <- "darkorange"}
+      RF_class_prob2$Prob.to.show <- RF_class_prob2$K.warm.arid
+      Estim.col <- "darkorange"; My_col_scale <- NULL
+      My_area <- geom_area(fill = Estim.col, position = "stack")}
     if(Cluster.prob == "K-cold/wet"){
-      RF_class_prob$Prob.to.show <- RF_class_prob$K.cold.wet
-      Estim.col <- "royalblue"}
+      RF_class_prob2$Prob.to.show <- RF_class_prob2$K.cold.wet
+      Estim.col <- "royalblue"; My_col_scale <- NULL
+      My_area <- geom_area(fill = Estim.col, position = "stack")}
+    if(Cluster.prob == "Both"){
+      RF_class_prob2 <- melt(RF_class_prob2, id = "Plot.y")
+      names(RF_class_prob2)[names(RF_class_prob2) == "value"] <- "Prob.to.show"
+      My_area <- geom_area(aes(fill = variable), position = "stack", color = NA, alpha = .7)
+      My_col <- c("K.warm.arid" = "darkorange",
+                  "K.cold.wet" = "royalblue")
+      My_col_scale <- scale_fill_manual(values = My_col, drop = T)
+    }
     
-    RF_class_prob$Prob.to.show <- round(RF_class_prob$Prob.to.show*100, digits = 0)
-    p.prob <- ggplot(RF_class_prob, aes(x = Plot.y, y = Prob.to.show))+
-      geom_area(fill = Estim.col, position = "stack")+ My_title+
-      Xlim+ scale_y_continuous(limits = c(0,100), breaks = c(0,50,100))+
+    RF_class_prob2$Prob.to.show <- round(RF_class_prob2$Prob.to.show*100, digits = 0)
+    p.prob <- ggplot(RF_class_prob2, aes(x = Plot.y, y = Prob.to.show))+
+      My_area+ My_title+ Xlim+ 
+      My_col_scale+
+      scale_y_continuous(limits = c(0,100), breaks = c(0,50,100))+
       xlab(NULL)+ylab("Cluster\nprob.")+
-      theme(
-        axis.text.x = element_blank(), axis.ticks.x = element_blank(), axis.title.x = element_blank())
+      theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), axis.title.x = element_blank())
     
     p.main <- p.prob / p.main# + plot_layout(heights = c(1, nlevels(M$Model)))
   }

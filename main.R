@@ -659,7 +659,7 @@ if(Paleo == T){
       GDGT.paleo = GDGT.Van,
       Surf.val = Actual.val$MAAT[row.names(Actual.val) == "Vanevan"],
       Compare.curve = c("MAAT_mr_DJ", "MAAT_soil_Naaf", "MAAT_LSun"), Core.name = "(B) Vanevan (Armenia)",
-      Plot.y = "Age", Plot.y.lab = NULL, Param.clim = "MAAT", Cluster.prob = "K-warm/arid",
+      Plot.y = "Age", Plot.y.lab = NULL, Param.clim = "MAAT", 
       Facet = F, Only.best = F, Show.proba = T, Highlight.combined = T,
       Save.path = "Results/Vanevan_brACA_combined.Rds")
     
@@ -667,7 +667,7 @@ if(Paleo == T){
       List.models = list(M1 = NRX.brACA, M2 = NRX.brACA.karid, M3 = NRX.brACA.kwet),
       Model.lab = c("ACADB", "K-warm/arid", "K-cold/wet"),
       Cluster.prediction = Cluster.prediction.ACADB.brGDGT,
-      GDGT.paleo = GDGT.NRX, Time.lim = c(0, 7200), Cluster.prob = "K-warm/arid",
+      GDGT.paleo = GDGT.NRX, Time.lim = c(0, 7200), 
       Surf.val = Actual.val$MAAT[row.names(Actual.val) == "NRX"],
       Compare.curve = c("MAAT_mr_DJ", "MAAT_DJ_5Me", "MAAT_NMSDB_mr5"), Core.name = "(A) NRX (Altai)",
       Plot.y = "Age",  Plot.y.lab = NULL, Param.clim = "MAAT", 
@@ -682,7 +682,7 @@ if(Paleo == T){
       GDGT.paleo = GDGT.XRD, Time.lim = c(0, 7200), 
       Surf.val = Actual.val$MAAT[row.names(Actual.val) == "XRD"],
       Compare.curve = c("MAAT_mr_DJ", "MAAT_DJ_5Me", "MAAT_NMSDB_mr5"), Core.name = "(C) XRD (Qaidam)",
-      Plot.y = "Age", Plot.y.lab = "Age (yr cal BP)", Param.clim = "MAAT", Cluster.prob = "K-cold/wet",
+      Plot.y = "Age", Plot.y.lab = "Age (yr cal BP)", Param.clim = "MAAT", 
       Facet = F, Only.best = F, Show.proba = T, Highlight.combined = T,
       Save.path = "Results/XRD_brACA_combined.Rds"
     )
@@ -702,17 +702,15 @@ if(Paleo == T){
       Cluster.prediction = Cluster.prediction.ACADB.brGDGT,
       GDGT.paleo = GDGT.Van,
       Surf.val = Actual.val$AI[row.names(Actual.val) == "Vanevan"],
-      # Compare.curve = c("MAAT_mr_DJ", "MAAT_soil_Naaf", "MAAT_LSun"), Core.name = "(B) Vanevan (Armenia)",
-      Plot.y = "Age", Plot.y.lab = NULL, Param.clim = "AI", Cluster.prob = "K-warm/arid",
+      Plot.y = "Age", Plot.y.lab = NULL, Param.clim = "AI", 
       Facet = F, Only.best = F, Show.proba = T, Highlight.combined = T)
     
     pBRT.NRX.AI <- Combine.ML.cluster(
       List.models = list(M1 = NRX.brACA, M2 = NRX.brACA.karid, M3 = NRX.brACA.kwet),
       Model.lab = c("ACADB", "K-warm/arid", "K-cold/wet"),
       Cluster.prediction = Cluster.prediction.ACADB.brGDGT,
-      GDGT.paleo = GDGT.NRX, Time.lim = c(0, 7200), Cluster.prob = "K-warm/arid",
+      GDGT.paleo = GDGT.NRX, Time.lim = c(0, 7200), 
       Surf.val = Actual.val$AI[row.names(Actual.val) == "NRX"],
-      # Compare.curve = c("MAAT_mr_DJ", "MAAT_DJ_5Me", "MAAT_NMSDB_mr5"),
       Core.name = "(A) NRX (Altai)",
       Plot.y = "Age",  Plot.y.lab = NULL, Param.clim = "AI", 
       Facet = F, Only.best = F, Show.proba = T, Highlight.combined = T)
@@ -723,9 +721,8 @@ if(Paleo == T){
       Cluster.prediction = Cluster.prediction.ACADB.brGDGT,
       GDGT.paleo = GDGT.XRD, Time.lim = c(0, 7200), 
       Surf.val = Actual.val$AI[row.names(Actual.val) == "XRD"],
-      # Compare.curve = c("MAAT_mr_DJ", "MAAT_DJ_5Me", "MAAT_NMSDB_mr5"), 
       Core.name = "(C) XRD (Qaidam)",
-      Plot.y = "Age", Plot.y.lab = "Age (yr cal BP)", Param.clim = "AI", Cluster.prob = "K-cold/wet",
+      Plot.y = "Age", Plot.y.lab = "Age (yr cal BP)", Param.clim = "AI", 
       Facet = F, Only.best = F, Show.proba = T, Highlight.combined = T)
     
     pCal.AI <- pBRT.NRX.AI[[1]]   / pBRT.NRX.AI[[2]]   /
@@ -745,14 +742,14 @@ if(Paleo == T){
       Surf.val = Actual.val$MAF[row.names(Actual.val) == "Vanevan"],
       Compare.curve = c("MAF_MSosa"),
       Core.name = "(B) Vanevan (Armenia)",
-      Plot.y = "Age", Plot.y.lab = NULL, Param.clim = "MAF", Cluster.prob = "K-warm/arid",
+      Plot.y = "Age", Plot.y.lab = NULL, Param.clim = "MAF",
       Facet = F, Only.best = F, Show.proba = T, Highlight.combined = T)
     
     pBRT.NRX.MAF <- Combine.ML.cluster(
       List.models = list(M1 = NRX.brACA, M2 = NRX.brACA.karid, M3 = NRX.brACA.kwet),
       Model.lab = c("ACADB", "K-warm/arid", "K-cold/wet"),
       Cluster.prediction = Cluster.prediction.ACADB.brGDGT,
-      GDGT.paleo = GDGT.NRX, Time.lim = c(0, 7200), Cluster.prob = "K-warm/arid",
+      GDGT.paleo = GDGT.NRX, Time.lim = c(0, 7200), 
       Surf.val = Actual.val$MAF[row.names(Actual.val) == "NRX"],
       Compare.curve = c("MAF_MSosa"),
       Core.name = "(A) NRX (Altai)", Plot.y = "Age",  Plot.y.lab = NULL, Param.clim = "MAF", 
@@ -765,7 +762,7 @@ if(Paleo == T){
       GDGT.paleo = GDGT.XRD, Time.lim = c(0, 7200), 
       Surf.val = Actual.val$MAF[row.names(Actual.val) == "XRD"],
       Compare.curve = c("MAF_MSosa"), Core.name = "(C) XRD (Qaidam)",
-      Plot.y = "Age", Plot.y.lab = "Age (yr cal BP)", Param.clim = "MAF", Cluster.prob = "K-cold/wet",
+      Plot.y = "Age", Plot.y.lab = "Age (yr cal BP)", Param.clim = "MAF",
       Facet = F, Only.best = F, Show.proba = T, Highlight.combined = T)
     
     pCal.MAF <- pBRT.NRX.MAF[[1]]   / pBRT.NRX.MAF[[2]]   / pBRT.NRX.MAF[[3]] /
