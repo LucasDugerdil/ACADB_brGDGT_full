@@ -1,0 +1,15 @@
+\begin{table}[ht]
+\centering
+\caption{Statistics using to assess the performance of the two machine learning methods based on R$^2$ and RMSE. Here, only the MAAT inferred from the ACADB is tested. Both Random Forest (RF) and Boosted Regression Trees (BRT) produce self statistics (i.e. statistic estimated with the same data for training and testing set and internal cross-validation (i.e., the $R^2$ and RMSE are averaged on multiple statistic values obtain from different training and testing datasets). The internal cross-validation is obtain from \textit{out-of-bag} method for the RF and k-fold cross-validation for the BRT. An external cross-validation using \texttt{train()} function from \texttt{caret} package was also performed based on ten k-folds. Here, the input data used to train the machine learning algorithm is \textit{a priori} split in training and testing datasets. Finally, a nested cross-validation based on five inner and ten outer folds gives the last statistics.} 
+\label{FT_table}
+\begin{tabular}{lrrrr}
+  \toprule
+\textbf{Performance estimation method} & R$^2$ & RMSE & R$^2$ & RMSE \\ 
+  \midrule
+Self values & 0.95 & 1.87 & 0.98 & 0.90 \\ 
+  Internal cross-validation (OOB/ k-fold) & 0.59 & 4.24 & 0.64 & 3.93 \\ 
+  External cross-validation (caret) & 0.61 & 4.24 & 0.64 & 3.97 \\ 
+  Nested cross-validation & 0.59 & 4.28 & 0.62 & 4.05 \\ 
+   \bottomrule
+\end{tabular}
+\end{table}

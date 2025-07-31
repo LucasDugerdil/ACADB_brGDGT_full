@@ -12,6 +12,6 @@ The script could be modified for calibrations in other study areas.
 2. It is easier to use [Rstudio](https://posit.co/downloads/)
 3. Download this GitHub repository from ZIP file (by clicing on the green button `<> Code` beyond. 
 ## To run the full code
-1. Open the `ACADB_brGDGT_full.Rproj` file in Rstudio
-2. (Optional) to apply the `randomTF()` test on your different models, turn to `TRUE` the test change into `test.randomTF = T`, then the script will launch the function `Plot.randomTF()`
-3. (Optional) many option and settings for each function (e.g. change the `BRT` model for the `RF`, export figure in `plotly`, etc.) can be discovered when look at the `./Import/Script/BRT_script.R` file
+	- Open the `ACADB_brGDGT_full.Rproj` file in Rstudio
+	- (Optional) to apply the `randomTF()` test on your different models, turn to `TRUE` the test change into `test.randomTF = T`, then the script will launch the function `Plot.randomTF()`
+	- (Optional) many option and settings for each function (e.g. change the `BRT` model for the `RF`, export figure in `plotly`, etc.) can be discovered when look at the `./Import/Script/BRT_script.R` file

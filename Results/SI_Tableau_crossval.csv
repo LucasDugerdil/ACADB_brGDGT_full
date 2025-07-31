@@ -1,0 +1,5 @@
+"","\textbf{Performance estimation method}","R$^2$","RMSE","R$^2$","RMSE"
+"2","Self values",0.95,1.87,0.98,0.901
+"3","Internal cross-validation (OOB/ k-fold)",0.59,4.24,0.64,3.93
+"4","External cross-validation (caret)",0.61,4.24,0.64,3.97
+"5","Nested cross-validation",0.59,4.28,0.62,4.05
