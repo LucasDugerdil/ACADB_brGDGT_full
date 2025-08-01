@@ -6,8 +6,6 @@ This GitHub project is associated to the publication of *Boosted Regression Tree
 This R script is the full script develloped in the publication.
 It is usefull to verify the replicability of this study.
 The script could be modified for calibrations in other study areas. 
-The release v1.0.1 is associate to zenodo with:
-[![DOI](https://zenodo.org/badge/952259754.svg)](https://doi.org/10.5281/zenodo.16658140)
 
 ## How to install/run the ACADB brGDGT calibrations?
 1. Install [R](https://larmarange.github.io/analyse-R/installation-de-R-et-RStudio.html)
