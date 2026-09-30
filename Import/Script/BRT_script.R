@@ -2905,7 +2905,7 @@ CrossVal.ML <- function(Mclim = NULL, Param.clim = NULL, Mproxy = NULL, Model = 
 
 Diag.ternaire.methylation <- function(MGDGT, Mcol, My_colors, Show.Dearing, Show.Naafs.peat, Show.Plotly, Return.plot = F,
                                       Full.labels = T, Legend.pos = "right", Annot = NULL, Show.arrows = T, Lake.name = NULL,
-                                      Show.lake = F, Add.facet = F, Show.soil = F, Show.peat = F, Remove.ACA = F, 
+                                      Show.lake = F, Add.facet = F, Show.soil = F, Show.peat = F, Remove.ACA = F, Show.marine = F,
                                       Alpha.dot, Size.dot, Export.to.chart.studio = F, Save.path, W, H){
   #### Initialization values ####
   library(ggplot2)
